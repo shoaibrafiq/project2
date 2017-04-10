@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+#Gems are libraries of functionality that you can add to an application
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -7,6 +8,10 @@ gem 'rails', '4.2.6'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+#simple form allows you to create froms to add in information
+gem 'simple_form', '~> 3.4'
+#front-end framework
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
