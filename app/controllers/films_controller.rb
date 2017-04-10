@@ -12,7 +12,13 @@ class FilmsController < ApplicationController
 
 
   def create
-    @film = Film.new(book_params)
+    @film = Film.new(film_params)
+
+    if @film.save
+      redirect_to root_path #this will redirect to index page as path is set as index
+    else
+      render 'new' #redirect to new page
+    end
   end
 
   private
