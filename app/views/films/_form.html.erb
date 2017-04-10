@@ -1,0 +1,10 @@
+<!--- this is a partial file which will be included in the new.html.erb page --->
+
+<%= simple_form_for @film do |f| %>
+<%= f.input :title, label: "Film title" %>
+<%= f.input :plot %>
+<%= f.input :actor %>
+<%= f.button :submit %>
+<% end %>
+
+<!--- form is created for  the user to add film  --->
