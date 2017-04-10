@@ -1,5 +1,9 @@
 == README
 
+Name: Shoaib Rafiq
+Student ID: U1464884
+Framework: Ruby On Rails
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
