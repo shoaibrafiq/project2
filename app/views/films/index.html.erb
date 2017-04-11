@@ -1,1 +1,4 @@
-<h1>Index view</h1>
+<% @films.each do |film| %>
+<!---looping through all the books defined in the index function in the films controller-->
+<h2><%= film.title %></h2>
+<% end %>

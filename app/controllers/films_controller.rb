@@ -4,6 +4,7 @@ class FilmsController < ApplicationController
 # '@film' is an instance variable which is used in the views
 
   def index
+    @films = Film.all.order("created_at DESC") #display books with the most recent at the top and oldest at the bottom
   end
 
   def new
@@ -15,7 +16,7 @@ class FilmsController < ApplicationController
     @film = Film.new(film_params)
 
     if @film.save
-      redirect_to root_path #this will redirect to index page as path is set as index
+      redirect_to root_path #this will redirect to index page as root path is set as index
     else
       render 'new' #redirect to new page
     end
