@@ -38,6 +38,8 @@ class FilmsController < ApplicationController
 end
 
   def destroy
+    @film.destroy
+    redirect_to root_path
   end
 
   private
