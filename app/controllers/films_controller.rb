@@ -16,7 +16,6 @@ class FilmsController < ApplicationController
     @film = Film.new
   end
 
-
   def create
     @film = Film.new(film_params)
 
@@ -25,6 +24,20 @@ class FilmsController < ApplicationController
     else
       render 'new' #redirect to new page
     end
+  end
+
+  def edit
+  end
+
+  def update #checks if film is updated successfully
+    if @film.update(film_params)
+      redirect_to film_path(@film)
+    else
+      render 'edit' #redirect to edit page
+  end
+end
+
+  def destroy
   end
 
   private
