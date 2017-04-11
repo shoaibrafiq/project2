@@ -1,4 +1,6 @@
 <% @films.each do |film| %>
 <!---looping through all the books defined in the index function in the films controller-->
-<h2><%= film.title %></h2>
+<h2><%= link_to film.title, film_path(film) %></h2>
 <% end %>
+
+<%= link_to "Add Film", new_film_path %> <!--- same as the anchor tag in html '<a href=></a>'-->

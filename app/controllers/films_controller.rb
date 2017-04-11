@@ -1,4 +1,6 @@
 class FilmsController < ApplicationController
+  before_action :find_film, only: [:show, :edit, :update, :destroy]
+    #before any of the actions below this function will be intiate, in this case we want to find the film for the show, edit, update and destroy actions
 
 #def is defining the action, then name of the action and end of action
 # '@film' is an instance variable which is used in the views
@@ -6,6 +8,9 @@ class FilmsController < ApplicationController
   def index
     @films = Film.all.order("created_at DESC") #display books with the most recent at the top and oldest at the bottom
   end
+
+  def show
+    end
 
   def new
     @film = Film.new
@@ -25,11 +30,12 @@ class FilmsController < ApplicationController
   private
 
   def film_params
-    params.require(:film).permit(:title, :plot, :actor)
-
-  end
+    params.require(:film).permit(:title, :plot, :actor) #define the information that the user can fill out and what we want to be able to use
+    end
   #when the user fills in information and sends a request its going to be passed with the information the user filled out in a form
-#define the information that the user can fill out and what we want to be able to use
 
+def find_film
+  @film = Film.find(params[:id]) #find a film by id and put it in the instance variable
+end
 
 end
