@@ -12,6 +12,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'simple_form', '~> 3.4'
 #front-end framework
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+#User authentication
+gem 'devise', '~> 4.2', '>= 4.2.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
