@@ -14,10 +14,12 @@ class FilmsController < ApplicationController
 
   def new
     @film = current_user.films.build #relating this to the current_user id
+    @genres = Genre.all.map { |c| [c.name, c.id]  } #this is used when creating select_tag for dropdown menu in the form options_for_select requires an array of arrays which provides the text for the drop down option
   end
 
   def create
     @film = current_user.films.build(film_params)
+    @film.genre_id = params[:genre_id] #associating films with genre
 
     if @film.save
       redirect_to root_path #this will redirect to index page as root path is set as index
@@ -45,7 +47,7 @@ end
   private
 
   def film_params
-    params.require(:film).permit(:title, :plot, :actor) #define the information that the user can fill out and what we want to be able to use
+    params.require(:film).permit(:title, :plot, :actor, :genre_id) #define the information that the user can fill out and what we want to be able to use
     end
   #when the user fills in information and sends a request its going to be passed with the information the user filled out in a form
 

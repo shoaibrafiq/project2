@@ -3,6 +3,7 @@
 <%= simple_form_for @film do |f| %>
 <%= f.input :title, label: "Film title" %>
 <%= f.input :plot %>
+<%= select_tag(:genre_id, options_for_select(@genres), :prompt => "Select Genre") %> <!--- Dropdownlist relating to the code in the films controller new action -->
 <%= f.input :actor %>
 <%= f.button :submit %>
 <% end %>
