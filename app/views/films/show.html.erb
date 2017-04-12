@@ -7,9 +7,12 @@
 
 <!-- The If statements are for when the user is not logged in they can't access the edit and delete links Only the user who has created a certain book can access their edit and delete links-->
 
-<% if user_signed_in? %>
 
 <%= link_to "Back", root_path %>
+
+<% if user_signed_in? %>
+
+
 <% if @film.user_id == current_user.id %>
 
 <%= link_to "Edit", edit_film_path(@film) %>
