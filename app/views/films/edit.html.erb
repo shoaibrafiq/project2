@@ -1,4 +1,10 @@
 <h1>Edit Film</h1>
 
-<%= render 'form' %>
-<!--- included from partial --->
+
+<%= simple_form_for @film, :html => { :multipart => true } do |f| %>
+<%= f.input :title, label: "Film title" %>
+<%= f.input :plot %>
+<%= f.select :genre_id, @genres %>
+<%= f.input :actor %>
+<%= f.button :submit %>
+<% end %>

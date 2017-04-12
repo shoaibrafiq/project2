@@ -29,9 +29,11 @@ class FilmsController < ApplicationController
   end
 
   def edit
+    @genres = Genre.all.map { |c| [c.name, c.id]  }
   end
 
   def update #checks if film is updated successfully
+    @film.genre_id = params[:genre_id]
     if @film.update(film_params)
       redirect_to film_path(@film)
     else
