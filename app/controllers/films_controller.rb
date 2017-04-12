@@ -13,11 +13,11 @@ class FilmsController < ApplicationController
     end
 
   def new
-    @film = Film.new
+    @film = current_user.films.build
   end
 
   def create
-    @film = Film.new(film_params)
+    @film = current_user.films.build(film_params)
 
     if @film.save
       redirect_to root_path #this will redirect to index page as root path is set as index
