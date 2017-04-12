@@ -13,7 +13,7 @@ class FilmsController < ApplicationController
     end
 
   def new
-    @film = current_user.films.build
+    @film = current_user.films.build #relating this to the current_user id
   end
 
   def create
