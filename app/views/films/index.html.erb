@@ -1,4 +1,11 @@
+
+<h1 class="current-genre"><small><%= params[:genre] %></small></h1>
+
+<% if @films.count == 0 %>
+<h1><small>Films currently not available in this Genre</small></h1>
+<% else %>
 <% @films.each do |film| %>
 <!---looping through all the books defined in the index function in the films controller-->
 <h2><%= link_to film.title, film_path(film) %></h2>
+<% end %>
 <% end %>
