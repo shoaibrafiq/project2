@@ -1,6 +1,6 @@
 
 <!-- this page will correspond to the films controller where we defined find_film action-->
-
+<%= image_tag @film.film_img.url(:film_show), class: "film-show" %>
 <h2><%= @film.title %></h2>
 <h3>Genre: <%= @film.genre.name %></h3>
 <p><%= @film.plot %></p>
