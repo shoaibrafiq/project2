@@ -2,11 +2,16 @@ class FilmsController < ApplicationController
   before_action :find_film, only: [:show, :edit, :update, :destroy]
     #before any of the actions below this function will be intiate, in this case we want to find the film for the show, edit, update and destroy actions
 
-#def is defining the action, then name of the action and end of action
-# '@film' is an instance variable which is used in the views
 
   def index
-    @films = Film.all.order("created_at DESC") #display books with the most recent at the top and oldest at the bottom
+#if statement is for if there is nothing being passed and user is still on the route page then display books with the most recent at the top and oldest at the bottom
+    if params[:genre].blank?
+    @films = Film.all.order("created_at DESC")
+  else
+#when filtered by genres then display books in descending order relating to the genre selected in views page
+    @genre_id = Genre.find_by(name: params[:genre]).id
+    @films = Film.where(:genre_id => @genre_id).order("created_at DESC")
+  end
   end
 
   def show
@@ -49,7 +54,8 @@ end
   private
 
   def film_params
-    params.require(:film).permit(:title, :plot, :actor, :genre_id) #define the information that the user can fill out and what we want to be able to use
+    params.require(:film).permit(:title, :plot, :actor, :genre_id)
+    #define the information that the user can fill out and what we want to be able to use
     end
   #when the user fills in information and sends a request its going to be passed with the information the user filled out in a form
 
