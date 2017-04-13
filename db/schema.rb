@@ -11,16 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412114642) do
+ActiveRecord::Schema.define(version: 20170413123822) do
 
   create_table "films", force: :cascade do |t|
     t.string   "title"
     t.text     "plot"
     t.string   "actor"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "user_id"
     t.integer  "genre_id"
+    t.string   "film_img_file_name"
+    t.string   "film_img_content_type"
+    t.integer  "film_img_file_size"
+    t.datetime "film_img_updated_at"
   end
 
   create_table "genres", force: :cascade do |t|
