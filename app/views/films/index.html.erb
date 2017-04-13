@@ -6,6 +6,8 @@
 <% else %>
 <% @films.each do |film| %>
 <!---looping through all the books defined in the index function in the films controller-->
-<h2><%= link_to film.title, film_path(film) %></h2>
+<a class href="/films/<%= film.id %>">
+  <%= image_tag film.film_img.url(:film_index) %>
+</a>
 <% end %>
 <% end %>

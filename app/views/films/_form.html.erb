@@ -1,10 +1,12 @@
 <!--- this is a partial file which will be included in the new.html.erb page --->
 
 <%= simple_form_for @film, :html => { :multipart => true } do |f| %>
+<%= f.file_field :film_img %>
 <%= f.input :title, label: "Film title" %>
 <%= f.input :plot %>
-<%= select_tag(:genre_id, options_for_select(@genres), :prompt => "Select Genre") %> <!--- Dropdownlist relating to the code in the films controller new action -->
-<%= f.input :actor %>
+<%= select_tag(:genre_id, options_for_select(@genres), :prompt => "Select Genre") %>
+<!--- Dropdownlist relating to the code in the films controller new action -->
+<%= f.input :actor, label: "Cast" %>
 <%= f.button :submit %>
 <% end %>
 

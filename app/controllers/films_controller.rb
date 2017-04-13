@@ -54,7 +54,7 @@ end
   private
 
   def film_params
-    params.require(:film).permit(:title, :plot, :actor, :genre_id)
+    params.require(:film).permit(:title, :plot, :actor, :genre_id, :film_img)
     #define the information that the user can fill out and what we want to be able to use
     end
   #when the user fills in information and sends a request its going to be passed with the information the user filled out in a form
