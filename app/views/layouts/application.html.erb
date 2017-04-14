@@ -16,11 +16,12 @@
   </div>
 <!-- links to devise registration and login paths-->
 <ul class="nav navbar-nav navbar-right">
-  <li><%= link_to "Sign Up", new_user_registration_path %></li>
+
   <% if user_signed_in?  %> <!-- this if statement is made so if the user is logged in the sign out link will show otherwise it shows link to login-->
 <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 <% else %>
 <li><%= link_to "Log In", new_user_session_path %></li>
+<li><%= link_to "Sign Up", new_user_registration_path %></li>
   <% end %>
 </ul>
 
