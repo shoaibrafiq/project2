@@ -20,6 +20,22 @@ def create
   end
 end
 
+def edit
+end
+
+def update
+  if @genre.update(genre_params)
+    redirect_to genre_path(@genre)
+  else
+    render 'edit'
+  end
+end
+
+def destroy
+  @genre.destroy
+  redirect_to genres_path
+end
+
 private
 
 def genre_params

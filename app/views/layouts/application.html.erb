@@ -27,6 +27,7 @@
 
 
 <ul class="nav navbar-nav">
+  <li><%= link_to "All Genres", genres_path %></li>
 <% if user_signed_in? %>
   <li><%= link_to "Add Film", new_film_path %></li>
   <li><%= link_to "Add Genre", new_genre_path %></li>
@@ -37,17 +38,6 @@
 
 </nav>
 <div class="container">
-<ul class="nav navbar-right">
-  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Filter By Genre<span class="caret"></span></a>
-<ul class="dropdown-menu" role="menu">
-  <% Genre.all.each do |genre| %> <!-- Loop through and create list item for each genre-->
-<li class="<%= 'active' if params[:genre] == genre.name %>">
-  <%= link_to genre.name, films_path(genre: genre.name), class: "link" %>
-</li>
-<% end %>
-</ul>
-  </li>
-</ul>
 <ul class="nav">
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
