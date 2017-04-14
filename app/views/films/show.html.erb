@@ -1,13 +1,26 @@
+<div class="row">
 
+<div class="col-md-4">
 <!-- this page will correspond to the films controller where we defined find_film action-->
 <%= image_tag @film.film_img.url(:film_show), class: "film-show" %>
+</div>
+<div class="col-md-8">
 <h2><%= @film.title %></h2>
-<h3>Genre: <%= @film.genre.name %></h3>
+<h4>Genre: <%= @film.genre.name %></h4>
 <p><%= @film.plot %></p>
 <h4>Cast: <%= @film.actor %></h4>
+</div>
+
+</div>
 
 <!-- The If statements are for when the user is not logged in they can't access the edit and delete links Only the user who has created a certain book can access their edit and delete links-->
+<div class="row">
+<div class="col-md-8">
+  <!-- Reviews -->
 
+</div>
+
+</div>
 
 <%= link_to "Back", root_path %>
 
