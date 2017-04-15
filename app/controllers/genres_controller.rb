@@ -7,11 +7,11 @@ def index
 end
 
 def new
-  @genre = Genre.new
+  @genre = current_user.genres.build
 end
 
 def create
-  @genre = Genre.new(genre_params)
+  @genre = current_user.genres.build(genre_params)
 
   if @genre.save
     redirect_to genres_path
