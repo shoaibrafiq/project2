@@ -4,5 +4,13 @@
 <%= link_to "Back", genres_path %>
 
 
+<% if user_signed_in? %>
+
+
+<% if @genre.user_id == current_user.id %>
+
 <%= link_to "Edit", edit_genre_path(@genre) %>
 <%= link_to "delete", genre_path(@genre), method: :delete, data: { confirm:"Are you sure you want to delete this genre?"} %>
+<% end %>
+
+<% end %>
