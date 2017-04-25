@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 before_action :find_film #this action will take place before any other
+before_action :find_review, only: [:edit, :update, :destroy]
 
 def new
   @review = Review.new
@@ -17,6 +18,23 @@ def create
   end
 end
 
+def edit
+end
+
+def update
+  if @review.update(review_params)
+    redirect_to film_path(@film)
+  else
+    render 'edit'
+  end
+
+  def destroy
+@review.destroy
+redirect_to film_path(@film)
+  end
+
+end
+
 private
 
 def review_params
@@ -29,4 +47,7 @@ def find_film
   @film = Film.find(params[:film_id]) #film_id is used instead of id as review is associated with a film_id
 end
 
+def find_review
+  @review = Review.find(params[:id])
+end
 end
