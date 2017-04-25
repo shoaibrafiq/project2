@@ -15,6 +15,11 @@ class FilmsController < ApplicationController
   end
 
   def show
+    if @film.reviews.blank?
+      @average_review = 0;
+    else
+      @average_review = @film.reviews.average(:rating).round(2)
+    end #this averages out the reviews added which will be shown on the show page
     end
 
   def new
