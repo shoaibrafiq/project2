@@ -1,7 +1,7 @@
 class FilmsController < ApplicationController
   before_action :find_film, only: [:show, :edit, :update, :destroy]
     #before any of the actions below this function will be intiate, in this case we want to find the film for the show, edit, update and destroy actions
- before_action :authenticate_user!, only: [:new, :edit]
+  before_action :authenticate_user!, only: [:new, :edit]
 
   def index
 #if statement is for if there is nothing being passed and user is still on the route page then display books with the most recent at the top and oldest at the bottom
@@ -15,6 +15,11 @@ class FilmsController < ApplicationController
   end
 
   def show
+    if @film.reviews.blank?
+      @average_review = 0;
+    else
+      @average_review = @film.reviews.average(:rating).round(2)
+    end #this averages out the reviews added which will be shown on the show page
     end
 
   def new

@@ -20,6 +20,7 @@
 <% @films.each do |film| %>
 <!---looping through all the books defined in the index function in the films controller-->
 <div class="col-md-3">
+  <br>
 <a class href="/films/<%= film.id %>">
   <%= image_tag film.film_img.url(:film_index), class: "film" %>
 </a>
