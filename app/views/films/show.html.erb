@@ -39,3 +39,14 @@
 <% end %>
 
 <% end %>
+
+<!--The script tag is targeting the tag declared in review page and perform the functions from the jquery plugin-->
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
