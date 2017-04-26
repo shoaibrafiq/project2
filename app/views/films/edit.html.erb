@@ -1,4 +1,5 @@
-<h1>Edit Film</h1>
+<div class="col-md-8 col-md-offset-2" style="box-shadow:2px 2px 5px #800000;">
+<h2>Edit Film</h2>
 
 
 <%= simple_form_for @film, :html => { :multipart => true } do |f| %>
@@ -9,3 +10,5 @@
 <%= f.input :actor %>
 <%= f.button :submit %>
 <% end %>
+<br>
+</div>

@@ -9,12 +9,12 @@
 
 <% if @film.user_id == current_user.id %>
 
-<%= link_to "Edit", edit_film_path(@film) %>
-<%= link_to "Delete", film_path(@film), method: :delete, data: { confirm:"Are you sure you want to delete this film?"} %>
+<%= link_to "Edit", edit_film_path(@film), class:"btn btn-success" %>
+<%= link_to "Delete", film_path(@film), method: :delete, data: { confirm:"Are you sure you want to delete this film?"}, class:"btn btn-danger" %>
 
 <% end %>
 
-<% end %></h4><h4><%= link_to "< Go Back", root_path %></h4>
+<% end %></h4><h4><%= link_to "< Go Back", root_path, class:"btn btn-default" %></h4>
 </div>
 </div>
 <div class="col-md-8" style="box-shadow:2px 2px 5px #800000;">
@@ -31,10 +31,10 @@
 
 <!-- The If statements are for when the user is not logged in they can't access the edit and delete links Only the user who has created a certain book can access their edit and delete links-->
 <hr>
-<div class="col-md-12"><div>
+<div class="col-md-12"><div style="text-align:center">
 
-  <%= link_to "Add Review", new_film_review_path(@film) %>
-</div><br />
+  <%= link_to "Add Review",new_film_review_path(@film), class:"btn btn-default" %>
+</div>
   <!-- Reviews -->
 <%= render @film.reviews %>
 

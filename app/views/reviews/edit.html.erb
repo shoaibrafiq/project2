@@ -1,4 +1,6 @@
-<h1>Edit Review</h1>
+<div class="col-md-8 col-md-offset-2" style="box-shadow:2px 2px 5px #800000;">
+
+<h2>Edit Review</h2>
 
 <%= simple_form_for([@film, @review]) do |f| %>
 <div id="rating-form">
@@ -8,7 +10,8 @@
 <%= f.button :submit %>
 
 <% end %>
-
+<br>
+</div>
 <script>
   $('#rating-form').raty({
     path:'/assets/',
