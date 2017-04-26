@@ -1,6 +1,18 @@
 <!--- this is a partial file which will be included in the new.html.erb page --->
 
 <%= simple_form_for @film, :html => { :multipart => true } do |f| %>
+
+<!---Checking for errors then looping through to display each error-->
+<% if @film.errors.any? %>
+<h3>Errors</h3>
+<ul>
+<% @film.errors.full_messages.each do |message| %>
+<li>
+  <%= message %>
+</li>
+<% end %>
+</ul>
+<% end %>
 <%= f.file_field :film_img %>
 <%= f.input :title, label: "Film title" %>
 <%= f.input :plot %>

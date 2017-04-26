@@ -3,6 +3,17 @@
 <h2>New Genre</h2>
 
 <%= simple_form_for @genre, :html => { :multipart => true } do |f| %>
+<!---Checking for errors then looping through to display each error-->
+<% if @genre.errors.any? %>
+<h3>Errors</h3>
+<ul>
+<% @genre.errors.full_messages.each do |message| %>
+<li>
+  <%= message %>
+</li>
+<% end %>
+</ul>
+<% end %>
 <%= f.input :name, label: "Genre name" %>
 <%= f.input :description %>
 <%= f.button :submit %>

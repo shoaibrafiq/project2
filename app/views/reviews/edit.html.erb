@@ -3,6 +3,17 @@
 <h2>Edit Review</h2>
 
 <%= simple_form_for([@film, @review]) do |f| %>
+<!---Checking for errors then looping through to display each error-->
+<% if @review.errors.any? %>
+<h3>Errors</h3>
+<ul>
+<% @review.errors.full_messages.each do |message| %>
+<li>
+  <%= message %>
+</li>
+<% end %>
+</ul>
+<% end %>
 <div id="rating-form">
   <label>Rating</label>
 </div>
