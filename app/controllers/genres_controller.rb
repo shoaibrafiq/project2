@@ -1,17 +1,18 @@
 class GenresController < ApplicationController
+  #these actions will take place before any other
 before_action :find_genre, only: [:show, :edit, :update, :destroy]
-before_action :authenticate_user!, only: [:new, :edit]
+before_action :authenticate_user!, only: [:new, :edit] #if user is logged in they can add and edit
 
-def index
+def index #displaying genres in descending order
   @genres = Genre.all.order("created_at DESC")
 
 end
 
 def new
-  @genre = current_user.genres.build
+  @genre = current_user.genres.build #linked to current user
 end
 
-def create
+def create #creating and saving genres
   @genre = current_user.genres.build(genre_params)
 
   if @genre.save
@@ -24,7 +25,7 @@ end
 def edit
 end
 
-def update
+def update #update action is called when edited
   if @genre.update(genre_params)
     redirect_to genre_path(@genre)
   else

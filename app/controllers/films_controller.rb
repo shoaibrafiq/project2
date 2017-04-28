@@ -1,6 +1,6 @@
 class FilmsController < ApplicationController
   before_action :find_film, only: [:show, :edit, :update, :destroy]
-    #before any of the actions below this function will be intiate, in this case we want to find the film for the show, edit, update and destroy actions
+    #before any of the actions below this function will be intiated, in this case we want to find the film for the show, edit, update and destroy actions
   before_action :authenticate_user!, only: [:new, :edit]
 
   def index
@@ -24,7 +24,8 @@ class FilmsController < ApplicationController
 
   def new
     @film = current_user.films.build #relating this to the current_user id
-    @genres = Genre.all.map { |c| [c.name, c.id]  } #this is used when creating select_tag for dropdown menu in the form options_for_select requires an array of arrays which provides the text for the drop down option
+    @genres = Genre.all.map { |c| [c.name, c.id]  }
+   #this is used when creating select_tag for dropdown menu in the form options_for_select requires an array of arrays which provides the text for the drop down option
   end
 
   def create
@@ -32,7 +33,7 @@ class FilmsController < ApplicationController
     @film.genre_id = params[:genre_id] #associating films with genre
 
     if @film.save
-      redirect_to root_path #this will redirect to index page as root path is set as index
+      redirect_to root_path # if film saves this will redirect to index page as root path is set as index
     else
       render 'new' #redirect to new page
     end
@@ -51,7 +52,7 @@ class FilmsController < ApplicationController
   end
 end
 
-  def destroy
+  def destroy #deleting the film will call this function
     @film.destroy
     redirect_to root_path
   end

@@ -6,7 +6,7 @@
 <%= image_tag @film.film_img.url(:film_show), class: "film-show" %>
 <div class="container"><h4><% if user_signed_in? %>
 
-
+<!-- if user is signed in and has added a film the edit and delete links will show-->
 <% if @film.user_id == current_user.id %>
 
 <%= link_to "Edit", edit_film_path(@film), class:"btn btn-success" %>
