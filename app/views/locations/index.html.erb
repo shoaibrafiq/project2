@@ -1,0 +1,68 @@
+
+<%= form_tag search_locations_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Store", :name => nil %>
+  </p>
+<% end %>
+
+
+
+<h1>Stores Listed</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address  </th>
+      <th>Latitude  </th>
+      <th>Longitude  </th>
+      <th colspan="12"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= location.address %></td>
+
+        <td><%= location.latitude %></td>
+
+        <td><%= location.longitude %></td>
+
+
+        <td><%= link_to 'Show', location, class:"btn btn-default" %></td>
+
+
+
+
+        <% if user_signed_in? %>
+
+        <td><%= link_to 'Edit', edit_location_path(location), class:"btn btn-default" %> </td>
+
+        <td> <%= link_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default" %></td>
+  <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+        <% if user_signed_in? %>
+<%= link_to 'New Location', new_location_path, class:"btn btn-default" %>
+  <% end %>
+<style>
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+</style>

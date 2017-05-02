@@ -16,6 +16,8 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 #gem used for image upload
 gem 'paperclip', '~> 5.1'
+#geocoder for maps
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

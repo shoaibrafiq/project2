@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :locations do
+    collection do
+      get 'search'
+    end
+  end
+  
   devise_for :users
 resources :films do
 resources :reviews #nested routes
